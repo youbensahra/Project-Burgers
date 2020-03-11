@@ -1,5 +1,5 @@
 class Burger < ApplicationRecord
-    def nutriments
+    def avoir_nutriments
         @elements = []
         $value = []
         if Openfoodfacts::Product.get(code, locale: 'fr').nutriments.to_hash.nil?

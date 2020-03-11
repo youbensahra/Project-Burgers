@@ -2,10 +2,11 @@ class Burger < ApplicationRecord
     def nutriments
         @elements = []
         $value = []
-        @variable = Openfoodfacts::Product.get(code, locale: 'fr').nutriments.to_hash
-        #if @variable.nil?
-        #    error
-         #else 
+        if Openfoodfacts::Product.get(code, locale: 'fr').nutriments.to_hash.nil?
+             error
+        
+        else
+            @variable = Openfoodfacts::Product.get(code, locale: 'fr').nutriments.to_hash 
             @variable = @variable.to_s
             @variable.sub!("{", "")
             @variable.sub!("}", "")
@@ -15,6 +16,6 @@ class Burger < ApplicationRecord
                 $value = $value + "#{i}".split("=>")
             end
             return Openfoodfacts::Product.get(code, locale: 'fr').nutriments.to_hash
-        #end
+        end
     end
 end

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Code:</strong>
+  <%= @burger.code %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @burger.name %>
 </p>
@@ -19,6 +24,22 @@
   <strong>Nutriscore:</strong>
   <%= @burger.nutriscore %>
 </p>
+
+<p>
+  <strong>Nutriments:</strong>
+  <table class="tableau">
+    <% i = 0 %>
+    <% while i < $value.length %>
+      <tr>
+        <td class="tableau"><%= $value[i] %></td>
+        <% i = i + 1 %>
+        <td class="tableau"><%= $value[i] %></td>
+        <% i = i + 1 %>
+      </tr>
+    <% end %>
+  </table>
+
+  
 
 <%= link_to 'Edit', edit_burger_path(@burger) %> |
 <%= link_to 'Back', burgers_path %>

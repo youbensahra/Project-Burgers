@@ -12,9 +12,9 @@ class Burger < ApplicationRecord
             for i in @elements
                 $value = $value + "#{i}".split("=>")
             end
-            return Openfoodfacts::Product.get(self.code, locale: 'fr').nutriments.to_hash        
+            return ""        
         else
-            return "error"
+            return "Le code doit sûrement être erronné."
         end
     end
 end

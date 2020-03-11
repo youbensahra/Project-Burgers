@@ -14,7 +14,7 @@ class Burger < ApplicationRecord
             end
             return Openfoodfacts::Product.get(self.code, locale: 'fr').nutriments.to_hash        
         else
-            return error
+            return "error"
         end
     end
 end

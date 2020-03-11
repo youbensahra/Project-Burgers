@@ -11,8 +11,8 @@ class Burger < ApplicationRecord
             @elements = @variable.split(",")
             for i in @elements
                 $value = $value + "#{i}".split("=>")
-            end
-            return ""        
+        end
+        return ""        
         else
             return "Le code doit sûrement être erronné."
         end

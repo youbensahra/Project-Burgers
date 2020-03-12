@@ -1,5 +1,5 @@
 class Burger < ApplicationRecord
-    def avoir_nutriments
+    def nutriments
         @elements = []
         $value = []
         if Openfoodfacts::Product.get(self.code, locale: 'fr')
@@ -12,7 +12,7 @@ class Burger < ApplicationRecord
             for i in @elements
                 $value = $value + "#{i}".split("=>")
         end
-        return ""        
+        return Openfoodfacts::Product.get(self.code, locale: 'fr').nutriments.to_hash       
         else
             return "Le code doit sûrement être erronné."
         end
